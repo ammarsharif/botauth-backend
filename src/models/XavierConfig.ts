@@ -9,7 +9,8 @@ const schema = new mongoose.Schema(
     username: String,
     rawCookies: String,
     savedAt: Date,
-    status: String
+    status: String,
+    passcode: { type: String, default: "1122" }
   },
   { collection: "xavier_config" }
 );
