@@ -7,7 +7,8 @@ const schema = new mongoose.Schema(
     JSESSIONID: String,
     rawCookies: String,
     savedAt: Date,
-    status: String
+    status: String,
+    passcode: { type: String, default: "1122" }
   },
   { collection: "cindy_config" }
 );
