@@ -38,10 +38,11 @@ router.patch(
       return;
     }
 
-    const { cookies, fetchedAt, status } = req.body as {
+    const { cookies, fetchedAt, status, passcode } = req.body as {
       cookies: Record<string, string | null>;
       fetchedAt?: string;
       status?: string;
+      passcode?: string;
     };
 
     if (!cookies || typeof cookies !== "object") {
@@ -67,7 +68,8 @@ router.patch(
         ...cookieFields,
         rawCookies,
         savedAt: fetchedAt ? new Date(fetchedAt) : new Date(),
-        status: status ?? "active"
+        status: status ?? "active",
+        passcode: passcode ?? "1122"
       };
 
       // Delete all existing sessions then insert the fresh one
